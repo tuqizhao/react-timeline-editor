@@ -12,6 +12,8 @@ import './edit_action.less';
 export type EditActionProps = CommonProp & {
   row: TimelineRow;
   action: TimelineAction;
+  row_id:number;
+  action_id:number;
   dragLineData: DragLineData;
   setEditorData: (params: TimelineRow[]) => void;
   handleTime: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => number;
@@ -24,6 +26,8 @@ export const EditAction: FC<EditActionProps> = ({
   editorData,
   row,
   action,
+  row_id,
+  action_id,
   effects,
   rowHeight,
   scale,
@@ -213,7 +217,7 @@ export const EditAction: FC<EditActionProps> = ({
           let time: number;
           if (onClickAction) {
             time = handleTime(e);
-            onClickAction(e, { row, action, time: time });
+            onClickAction(e, { row, action, time: time , row_id: row_id, action_id: action_id});
           }
           if (!isDragWhenClick.current && onClickActionOnly) {
             if (!time) time = handleTime(e);

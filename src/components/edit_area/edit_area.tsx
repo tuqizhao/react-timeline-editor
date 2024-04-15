@@ -104,6 +104,7 @@ export const EditArea = React.forwardRef<EditAreaState, EditAreaProps>((props, r
     const row = editorData[rowIndex]; // 行数据
     return (
       <EditRow
+        row_id={rowIndex}
         {...props}
         style={{
           ...style,

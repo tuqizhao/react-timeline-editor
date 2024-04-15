@@ -127,6 +127,8 @@ export interface EditData {
       action: TimelineAction;
       row: TimelineRow;
       time: number;
+      row_id?: number;
+      action_id?: number;
     },
   ) => void;
   /**

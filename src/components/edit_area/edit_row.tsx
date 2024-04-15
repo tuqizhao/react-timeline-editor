@@ -11,6 +11,7 @@ export type EditRowProps = CommonProp & {
   areaRef: React.MutableRefObject<HTMLDivElement>;
   rowData?: TimelineRow;
   style?: React.CSSProperties;
+  row_id:number
   dragLineData: DragLineData;
   setEditorData: (params: TimelineRow[]) => void;
   /** 距离左侧滚动距离 */
@@ -70,10 +71,11 @@ export const EditRow: FC<EditRowProps> = (props) => {
         }
       }}
     >
-      {(rowData?.actions || []).map((action) => (
+      {(rowData?.actions || []).map((action, index) => (
         <EditAction
           key={action.id}
           {...props}
+          action_id={index}
           handleTime={handleTime}
           row={rowData}
           action={action}
